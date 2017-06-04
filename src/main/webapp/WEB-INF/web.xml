@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app id="jirator" 
+        xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+
+    <display-name>Jirator</display-name>
+
+    <filter>
+        <filter-name>transactionFilter</filter-name>
+        <filter-class>org.b1n.framework.web.filter.TransactionFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>transactionFilter</filter-name>
+        <url-pattern>*.logic</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>sync</servlet-name>
+        <servlet-class>org.b1n.jirator.web.servlet.SyncServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>tiles</servlet-name>
+        <servlet-class>org.apache.tiles.servlet.TilesServlet</servlet-class>
+        <init-param>
+            <param-name>definitions-config</param-name>
+            <param-value>/WEB-INF/tiles-defs.xml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup> 
+    </servlet>
+
+    <servlet>
+        <servlet-name>vraptor2</servlet-name>
+        <servlet-class>org.vraptor.VRaptorServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>vraptor2</servlet-name>
+        <url-pattern>*.logic</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>sync</servlet-name>
+        <url-pattern>/sync</url-pattern>
+    </servlet-mapping>
+
+	<taglib>
+    	<taglib-uri>http://b1n.org/jirator</taglib-uri>
+    	<taglib-location>/WEB-INF/jirator.tld</taglib-location>
+  	</taglib>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

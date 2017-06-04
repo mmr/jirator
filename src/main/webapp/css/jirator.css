@@ -1,0 +1,58 @@
+*, html {
+	font-family: helvetica, verdana, sans-serif;
+	padding: 0px;
+	margin: 0px;
+}
+
+#header, #footer, #menu {
+	border: 2px dotted white;
+	background-color: darkblue;
+	color: white;
+}
+
+#header {
+	height: 50px;
+	text-align: left;
+}
+
+#menu {
+	height: 30px;
+	background-color: cyan; 
+}
+
+#footer {
+	height: 20px;
+	font-size: small;
+	text-align: right;
+}
+
+table {
+  width: 80%;
+  background: whitesmoke;
+  border-collapse: collapse
+}
+
+table th, table td {
+  border: 1px solid silver;  
+  padding: 0.2em;
+}
+
+table th {
+  background: gainsboro;
+  text-align: left;
+  border-bottom: 2px solid silver;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+td.missing {
+  background-color: brown;
+  color: white;
+}
